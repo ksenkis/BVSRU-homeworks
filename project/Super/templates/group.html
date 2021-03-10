@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Записи сообщества{% endblock %}
+{% block header %}Записи сообщества {{ group }}{% endblock %}
+{% block content %}
+
+    <h1>{{ group }}</h1>
+    {% for post in posts %}
+        {% if group.slug == slug %}
+            <h3>
+                Автор: {{ post.author.get_full_name }}, Дата публикации: {{ post.pub_date|date:"d M Y" }}
+            </h3>
+            <p>{{ post.text|linebreaksbr }}</p>
+        {% endif %}
+    {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+{% endblock %}
