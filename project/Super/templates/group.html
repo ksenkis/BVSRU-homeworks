@@ -4,6 +4,7 @@
 {% block content %}
 
     <h1>{{ group }}</h1>
+    <p>{{ group.description }}</p>
     {% for post in posts %}
         {% if group.slug == slug %}
             <h3>
